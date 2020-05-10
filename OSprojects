@@ -1,0 +1,30 @@
+1. if \r\n is on a new line does that mean there's two \r\n-s?
+2. if proxy request, do I need to return it to the user or it is no longer my responsibility?
+3. file descriptors into working que? where is what you need to do w them? we write responses into them
+4. send data/send string difference?
+5. mime...
+
+
+1. switch threads!
+2. threads can run on different cpus? on one cpu how many processes
+3. first need to get lock & then donate
+4. when donating => give same prio
+
+
+Should a thread keep track of its received donations?
+Should a thread keep track of which other threads it has donated to?
+Should a thread change the value of its priority data member?
+Should a thread keep track of a secondary priority data member?
+How should a thread update its priority?
+How should a thread keep track of multiple locks?
+When do I need to use synchronization constructs to prevent race conditions between donations?
+What processes should happen when I call thread_set_priority?
+What processes should happen when I call thread_get_priority?
+
+
+GROUP PROJ
+	priority donation: 
+		t1 = 10 (priority)
+		t2 = 63
+		t1 grabs lock => t2 waits for t1 to release (in waiters) => t2 donate, t1_effective priority = 63
+		t1 releases lock, go back to priority, yield = 10 => t2 no longer waiter, grabs lock =>
